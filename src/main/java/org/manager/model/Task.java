@@ -1,18 +1,31 @@
 package org.manager.model;
 
+
 import java.sql.Date;
 
 public class Task {
-    public Integer id;
-    public String description;
-    public Date date;
+    private Integer id;
+    private String description;
+    private Date startDate;
+    private Date endDate;
+    private boolean status;
 
     public Task() {
     }
 
-    public Task(String description, Date date) {
+    public Task(String description, Date startDate) {
         this.description = description;
-        this.date = date;
+        this.startDate = startDate;
+        this.endDate = null;
+        this.status = false;
+    }
+
+    public Task(Integer id, String description, Date startDate, Date endDate, boolean status) {
+        this.id = id;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -31,11 +44,27 @@ public class Task {
         this.description = description;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
