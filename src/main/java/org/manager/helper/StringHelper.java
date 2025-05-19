@@ -1,6 +1,7 @@
 package org.manager.helper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class StringHelper {
@@ -20,5 +21,27 @@ public class StringHelper {
             lines.add(line.toString().trim());
         }
         return lines;
+    }
+
+    public static String booleanToString(boolean value) {
+        String text;
+        if (value) {
+            text = "DONE";
+        }
+        else {
+            text = "PEN";
+        }
+        return text;
+    }
+
+    public static String dateToString(Date date) {
+        String text;
+        if (date == null) {
+            text = "N/A";
+        }
+        else {
+            text = date.toString();
+        }
+        return text;
     }
 }
