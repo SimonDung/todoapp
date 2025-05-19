@@ -53,7 +53,7 @@ public class TaskRepository {
         preparedStatement.execute();
     }
 
-    public static void updateTaskStatus(int id, boolean status) throws SQLException {
+    public static void updateTaskStatus(Integer id, boolean status) throws SQLException {
         Connection connection = getDataSource().getConnection();
         String updateTaskStatus = "UPDATE TASK SET TASK_STATUS = ? WHERE ID = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(updateTaskStatus);
@@ -116,7 +116,6 @@ public class TaskRepository {
 
     public static void deleteTask(int id) throws SQLException {
         Connection connection = getDataSource().getConnection();
-        List<Task> tasks = new ArrayList<>();
         String deleteTask = "DELETE FROM TASK WHERE ID = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteTask);
         preparedStatement.setInt(1, id);
